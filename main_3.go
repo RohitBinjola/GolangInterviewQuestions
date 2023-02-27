@@ -27,7 +27,7 @@ func main() {
 	//switchWithBreak()
 	//switchstatement()
 	//switchstatementFallthrough()
-	GoStringLiterals()
+	//GoStringLiterals()
 }
 
 func SimpleBreakStatement() {
