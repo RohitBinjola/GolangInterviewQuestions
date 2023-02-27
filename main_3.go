@@ -15,8 +15,19 @@ package main
 
 import "fmt"
 
-func main() {
+var global int = 0
 
+func main() {
+	//SimpleBreakStatement()
+	//NestedBreakStatement()
+	//SimpleContinue()
+	//NestedContinue()
+	//Labels()
+	//GotoStatement()
+	//switchWithBreak()
+	//switchstatement()
+	//switchstatementFallthrough()
+	GoStringLiterals()
 }
 
 func SimpleBreakStatement() {
@@ -26,17 +37,14 @@ func SimpleBreakStatement() {
 		}
 		fmt.Println(i)
 	}
+	fmt.Println("I came out of lop via break")
 }
 
 // Nested BREAK
 func NestedBreakStatement() {
-	// outer for loop
 	for i := 1; i <= 3; i++ {
-		// inner for loop
 		for j := 1; j <= 3; j++ {
-
-			// terminates the inner for loop only
-			if i == 2 {
+			if i == 2 { // terminates the inner for loop only
 				break
 			}
 			fmt.Println("i=", i, "j=", j)
@@ -50,9 +58,9 @@ func SimpleContinue() {
 		if i == 3 {
 			continue
 		}
-
 		fmt.Println(i)
 	}
+	fmt.Println("I came out of loop after continue")
 }
 
 // Continue with nested loop
@@ -63,18 +71,17 @@ func NestedContinue() {
 				continue
 			}
 			fmt.Println("i=", i, "j=", j)
-
 		}
 	}
 }
 
 func GotoStatement() {
 	var a int = 10
-LOOP:
+LOOP: // Label
 	for a < 20 {
 		if a == 15 {
 			a = a + 1
-			goto LOOP
+			goto LOOP // Goto
 		}
 		fmt.Printf("value of a: %d\n", a)
 		a++
@@ -120,7 +127,7 @@ forLoop:
 }
 
 func switchstatement() {
-	var a int = 1
+	var a int = 10
 	switch {
 	case a == 1:
 		fmt.Println("a is 1")
@@ -132,13 +139,13 @@ func switchstatement() {
 }
 
 func switchstatementFallthrough() {
-	var a int = 1
+	var a int = 2
 	switch {
 	case a == 1:
 		fmt.Println("a is 1")
-		fallthrough
 	case a == 2:
 		fmt.Println("a is 2")
+		fallthrough
 	default:
 		fmt.Println("None")
 	}
@@ -148,8 +155,8 @@ func GoStringLiterals() {
 	var a, b string
 
 	a = "Interpreted string literal"
-	b = `Raw string 
-	literal`
+	b = `Raw string literal`
 	fmt.Println(a)
 	fmt.Println(b)
+	fmt.Println(global)
 }
